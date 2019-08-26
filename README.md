@@ -1,4 +1,4 @@
-# Simple-Unix-Shell
+# Simple Unix Shell
 This is a command line interpreter (CLI). When a command accepted (in response to its prompt), the shell creates a child process that executes the command just entered and then prompts for more user input when it has finished.<br>
 
 - basic shell `wish`: This is an interactive loop which repeatedly prints a prompt `wish>`, parses the input, executes the command specified on that line of input, and waits for the command to finish. This is repeated until the user types exit.<br>
