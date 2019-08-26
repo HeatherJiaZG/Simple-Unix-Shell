@@ -1,0 +1,359 @@
+starting build
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to clean project using make clean
+make clean
+rm -f runtests*
+rm -f *.pyc
+Trying to build project using make
+make
+echo "#!/bin/bash" > runtests
+echo "base=/u/c/s/cs537-1/tests/p2a" >> runtests
+echo "python \$base/project2a.py --test-path \$base \$@"\
+	" | tee runtests.log" >> runtests
+echo "exit \$?" >> runtests
+chmod a+x runtests
+gcc wish.c -o wish
+
+
+test build FAILED
+ (build project using make)
+ required file 'wish' does not exist after make
+
+starting exit
+
+**********************************************************************
+
+Test exit
+run exit
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+
+
+test exit PASSED (5 of 5)
+ (run exit)
+
+starting cd
+
+**********************************************************************
+
+Test cd
+cd with argument
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard output.
+Expected: "wish> wish> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwish> wish> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwish> "
+Got:      "_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\n_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwish> wish> wish> wish> wish> "
+
+
+test cd FAILED (0 of 5)
+ (cd with argument)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/cd/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/cd
+ to compare your output with reference outputs. 
+
+starting badcd
+
+**********************************************************************
+
+Test badcd
+cd to a bad directory
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard error.
+Expected: "An error has occurred\n"
+Got:      ""
+
+
+test badcd FAILED (0 of 5)
+ (cd to a bad directory)
+ ./wish gave incorrect standard error.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/badcd/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/badcd
+ to compare your output with reference outputs. 
+
+starting exec
+
+**********************************************************************
+
+Test exec
+path should be /bin
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard output.
+Expected: "wish> Linux\nwish> _\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nwish> hello world!\nwish> "
+Got:      "Linux\n_\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\nm\nn\no\np\nq\nr\ns\nt\nu\nv\nw\nx\ny\nz\nhello world!\nwish> wish> wish> wish> "
+
+
+test exec FAILED (0 of 5)
+ (path should be /bin)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/exec/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/exec
+ to compare your output with reference outputs. 
+
+starting badexec
+
+**********************************************************************
+
+Test badexec
+run programs that do not exist in /bin
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard output.
+Expected: "wish> wish> wish> wish> wish> "
+Got:      "wish> No such command.wish> No such command.wish> No such command.wish> wish> "
+
+
+test badexec FAILED (0 of 10)
+ (run programs that do not exist in /bin)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/badexec/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/badexec
+ to compare your output with reference outputs. 
+
+starting path
+
+**********************************************************************
+
+Test path
+run path and a program that exists in a given path
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard output.
+Expected: "wish> wish> Too many arguments\nwish> "
+Got:      "wish> wish> No such command.wish> "
+
+
+test path FAILED (0 of 5)
+ (run path and a program that exists in a given path)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/path/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/path
+ to compare your output with reference outputs. 
+
+starting path2
+
+**********************************************************************
+
+Test path2
+run path with a long pathname and many different paths
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+
+
+test path2 PASSED (5 of 5)
+ (run path with a long pathname and many different paths)
+
+starting line
+
+**********************************************************************
+
+Test line
+line with maximum allowed length
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard output.
+Expected: "wish> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nwish> "
+Got:      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nwish> wish> "
+
+
+test line FAILED (0 of 5)
+ (line with maximum allowed length)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/line/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/line
+ to compare your output with reference outputs. 
+
+starting badarg
+
+**********************************************************************
+
+Test badarg
+extra argument to wish
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish /extra
+
+
+test badarg FAILED (0 of 5)
+ (extra argument to wish)
+ Timelimit (10.0s) exceeded
+
+starting whitespace
+
+**********************************************************************
+
+Test whitespace
+leading and trailing whitespace, full whitespaces or empty string
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish returned incorrect status code. Expected 0 got -11
+
+
+test whitespace FAILED (0 of 5)
+ (leading and trailing whitespace, full whitespaces or empty string)
+ ./wish returned incorrect status code. Expected 0 got -11
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/whitespace/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/whitespace
+ to compare your output with reference outputs. 
+
+starting rdr
+
+**********************************************************************
+
+Test rdr
+simple redirection with no standard error
+
+**********************************************************************
+/tmp/tmpGgpFjJ/p/./wish
+Failure: ./wish gave incorrect standard error.
+Expected: ""
+Got:      "uname: extra operand \342\200\230>\342\200\231\nTry 'uname --help' for more information.\n"
+
+
+test rdr FAILED (0 of 10)
+ (simple redirection with no standard error)
+ ./wish gave incorrect standard error.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/rdr/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/rdr
+ to compare your output with reference outputs. 
+
+**********************************************************************
+Summary:
+test build FAILED
+ (build project using make)
+ required file 'wish' does not exist after make
+
+test exit PASSED (5 of 5)
+ (run exit)
+
+test cd FAILED (0 of 5)
+ (cd with argument)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/cd/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/cd
+ to compare your output with reference outputs. 
+
+test badcd FAILED (0 of 5)
+ (cd to a bad directory)
+ ./wish gave incorrect standard error.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/badcd/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/badcd
+ to compare your output with reference outputs. 
+
+test exec FAILED (0 of 5)
+ (path should be /bin)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/exec/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/exec
+ to compare your output with reference outputs. 
+
+test badexec FAILED (0 of 10)
+ (run programs that do not exist in /bin)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/badexec/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/badexec
+ to compare your output with reference outputs. 
+
+test path FAILED (0 of 5)
+ (run path and a program that exists in a given path)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/path/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/path
+ to compare your output with reference outputs. 
+
+test path2 PASSED (5 of 5)
+ (run path with a long pathname and many different paths)
+
+test line FAILED (0 of 5)
+ (line with maximum allowed length)
+ ./wish gave incorrect standard output.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/line/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/line
+ to compare your output with reference outputs. 
+
+test badarg FAILED (0 of 5)
+ (extra argument to wish)
+ Timelimit (10.0s) exceeded
+
+test whitespace FAILED (0 of 5)
+ (leading and trailing whitespace, full whitespaces or empty string)
+ ./wish returned incorrect status code. Expected 0 got -11
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/whitespace/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/whitespace
+ to compare your output with reference outputs. 
+
+test rdr FAILED (0 of 10)
+ (simple redirection with no standard error)
+ ./wish gave incorrect standard error.
+
+ Test it yourself by running
+ wish </u/c/s/cs537-1/tests/p2a/rdr/in
+ and check out the test folder
+ /u/c/s/cs537-1/tests/p2a/rdr
+ to compare your output with reference outputs. 
+
+Passed 2 of 12 tests.
+Overall 2 of 12
+Points 10 of 65
